@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://clyj4h44fpd8s"]
+
+[ext_resource type="Script" uid="uid://bk4sk73lbj3kq" path="res://scripts/explosion.gd" id="1_exp"]
+
+[node name="Explosion" type="Node2D" unique_id=185929409]
+script = ExtResource("1_exp")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1720666898]
+amount = 105
+lifetime = 0.5
+explosiveness = 1.0
+direction = Vector2(0, -1)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 60.0
+initial_velocity_max = 180.0
+scale_amount_max = 2.5
+color = Color(1, 0.55, 0.15, 1)

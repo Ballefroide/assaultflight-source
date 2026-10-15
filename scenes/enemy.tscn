@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://benemyscene01"]
+
+[ext_resource type="Script" uid="uid://b8i7at48ugv3j" path="res://scripts/enemy.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://def3ju4j5oyop" path="res://assets/enemyjet_new.png" id="2_tex"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1"]
+radius = 3.0
+height = 18.0
+
+[node name="EnemyPlane" type="Area2D"]
+collision_layer = 16
+script = ExtResource("1_script")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -2)
+texture = ExtResource("2_tex")

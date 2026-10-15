@@ -1,0 +1,190 @@
+[gd_scene format=3 uid="uid://bopc8f8lnje8r"]
+
+[ext_resource type="Script" uid="uid://c1imnmjpci6e4" path="res://scripts/game_over.gd" id="1_go"]
+[ext_resource type="Texture2D" uid="uid://cb7e876xj21g6" path="res://assets/over.png" id="3_title"]
+[ext_resource type="FontFile" uid="uid://dp0krqgfu4qv8" path="res://assets/Kenney Future.ttf" id="4_font"]
+
+[sub_resource type="StyleBoxFlat" id="sb_normal"]
+content_margin_left = 28.0
+content_margin_top = 10.0
+content_margin_right = 28.0
+content_margin_bottom = 10.0
+bg_color = Color(0, 0, 0, 0.35)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 0.6)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="sb_pressed"]
+content_margin_left = 28.0
+content_margin_top = 10.0
+content_margin_right = 28.0
+content_margin_bottom = 10.0
+bg_color = Color(0.19, 0.87, 0.09, 0.4)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.19, 0.87, 0.09, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="sb_hover"]
+content_margin_left = 28.0
+content_margin_top = 10.0
+content_margin_right = 28.0
+content_margin_bottom = 10.0
+bg_color = Color(0.19, 0.87, 0.09, 0.25)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.19, 0.87, 0.09, 0.9)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxEmpty" id="sb_focus"]
+
+[node name="GameOver" type="CanvasLayer" unique_id=715638195]
+process_mode = 3
+layer = 3
+script = ExtResource("1_go")
+
+[node name="Dim" type="ColorRect" parent="." unique_id=958239498]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.45)
+
+[node name="ScoreLabel" type="Label" parent="." unique_id=710794927]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -536.0
+offset_top = -81.0
+offset_right = 64.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 44
+text = "Final Score: 0"
+vertical_alignment = 1
+
+[node name="BestLabel" type="Label" parent="." unique_id=1993760434]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 20.0
+offset_top = -244.0
+offset_right = 410.0
+offset_bottom = -200.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 34
+text = "Best: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HiScoresLabel" type="Label" parent="." unique_id=442564764]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 23.0
+offset_top = -170.0
+offset_right = 413.0
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 24
+text = "HIGH SCORES"
+horizontal_alignment = 1
+
+[node name="PlayAgain" type="Button" parent="." unique_id=1376091442]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -535.0
+offset_top = -17.0
+offset_right = -262.0
+offset_bottom = 38.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.19, 0.87, 0.09, 1)
+theme_override_colors/font_hover_color = Color(0.19, 0.87, 0.09, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("sb_normal")
+theme_override_styles/pressed = SubResource("sb_pressed")
+theme_override_styles/hover = SubResource("sb_hover")
+theme_override_styles/focus = SubResource("sb_focus")
+text = "PLAY AGAIN"
+
+[node name="MainMenu" type="Button" parent="." unique_id=1315654607]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -535.0
+offset_top = 53.0
+offset_right = -262.0
+offset_bottom = 108.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.7, 0.2, 1)
+theme_override_colors/font_hover_color = Color(1, 0.7, 0.2, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("sb_normal")
+theme_override_styles/pressed = SubResource("sb_pressed")
+theme_override_styles/hover = SubResource("sb_hover")
+theme_override_styles/focus = SubResource("sb_focus")
+text = "MAIN MENU"
+
+[node name="Title" type="TextureRect" parent="." unique_id=1710995738]
+offset_left = 33.0
+offset_top = 165.0
+offset_right = 161.0
+offset_bottom = 192.0
+scale = Vector2(3, 3)
+texture = ExtResource("3_title")

@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://ccituaw8dny6i"]
+
+[ext_resource type="Script" uid="uid://ddfwmmb8p0spp" path="res://scripts/death_anim.gd" id="1_da"]
+[ext_resource type="Texture2D" uid="uid://6vaunj8s08cy" path="res://assets/deathanim_parachute.png" id="2_para"]
+
+[node name="DeathAnim" type="Node2D" unique_id=1557785279]
+script = ExtResource("1_da")
+
+[node name="Wreck" type="Sprite2D" parent="." unique_id=101589280]
+visible = false
+
+[node name="Parachute" type="Sprite2D" parent="." unique_id=300755177]
+visible = false
+texture = ExtResource("2_para")

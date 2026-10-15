@@ -1,0 +1,259 @@
+[gd_scene format=3 uid="uid://d0ypbqry8hpwj"]
+
+[ext_resource type="Script" uid="uid://cdd4pjpysjor0" path="res://scripts/main_menu.gd" id="1_menu"]
+[ext_resource type="Texture2D" uid="uid://celby7e8vxcqi" path="res://assets/title.png" id="2_title"]
+[ext_resource type="FontFile" uid="uid://dp0krqgfu4qv8" path="res://assets/Kenney Future.ttf" id="3_font"]
+[ext_resource type="PackedScene" path="res://scenes/leaderboard.tscn" id="4_lb"]
+
+[sub_resource type="StyleBoxFlat" id="sb_btn"]
+content_margin_left = 24.0
+content_margin_top = 8.0
+content_margin_right = 24.0
+content_margin_bottom = 8.0
+bg_color = Color(0, 0, 0, 0.35)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 0.6)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="sb_btn_hover"]
+content_margin_left = 24.0
+content_margin_top = 8.0
+content_margin_right = 24.0
+content_margin_bottom = 8.0
+bg_color = Color(0.19, 0.87, 0.09, 0.25)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.19, 0.87, 0.09, 0.9)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="sb_panel"]
+bg_color = Color(0, 0, 0, 0.75)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 0.35)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="Menu" type="CanvasLayer" unique_id=976347084]
+process_mode = 3
+layer = 2
+script = ExtResource("1_menu")
+
+[node name="Dim" type="ColorRect" parent="." unique_id=1873725373]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.6)
+
+[node name="Prompt" type="Label" parent="." unique_id=1240845818]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -113.0
+offset_top = -20.0
+offset_right = 487.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 30
+text = "Click anywhere to get airborne"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Title" type="TextureRect" parent="." unique_id=222995848]
+offset_left = 665.0
+offset_top = 128.0
+offset_right = 793.0
+offset_bottom = 192.0
+scale = Vector2(3, 3)
+texture = ExtResource("2_title")
+
+[node name="HighScoresButton" type="Button" parent="." unique_id=1765798825]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -354.0
+offset_top = -83.0
+offset_right = -134.0
+offset_bottom = -33.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.84, 0.3, 1)
+theme_override_colors/font_hover_color = Color(1, 0.84, 0.3, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("sb_btn")
+theme_override_styles/pressed = SubResource("sb_btn_hover")
+theme_override_styles/hover = SubResource("sb_btn_hover")
+theme_override_styles/focus = SubResource("sb_btn")
+text = "HIGH SCORES"
+
+[node name="SettingsButton" type="Button" parent="." unique_id=1746713103]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -104.0
+offset_top = -83.0
+offset_right = 116.0
+offset_bottom = -33.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.19, 0.87, 0.09, 1)
+theme_override_colors/font_hover_color = Color(0.19, 0.87, 0.09, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("sb_btn")
+theme_override_styles/pressed = SubResource("sb_btn_hover")
+theme_override_styles/hover = SubResource("sb_btn_hover")
+theme_override_styles/focus = SubResource("sb_btn")
+text = "SETTINGS"
+
+[node name="ExitButton" type="Button" parent="." unique_id=651135814]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 134.0
+offset_top = -83.0
+offset_right = 354.0
+offset_bottom = -33.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.7, 0.2, 1)
+theme_override_colors/font_hover_color = Color(1, 0.7, 0.2, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("sb_btn")
+theme_override_styles/pressed = SubResource("sb_btn_hover")
+theme_override_styles/hover = SubResource("sb_btn_hover")
+theme_override_styles/focus = SubResource("sb_btn")
+text = "EXIT"
+
+[node name="SettingsPanel" type="PanelContainer" parent="." unique_id=733689217]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -170.0
+offset_right = 200.0
+offset_bottom = 170.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("sb_panel")
+
+[node name="VBox" type="VBoxContainer" parent="SettingsPanel" unique_id=1418357469]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="PanelTitle" type="Label" parent="SettingsPanel/VBox" unique_id=1349950797]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 30
+text = "SETTINGS"
+horizontal_alignment = 1
+
+[node name="AudioToggle" type="CheckButton" parent="SettingsPanel/VBox" unique_id=1999113579]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 22
+text = "Sound"
+
+[node name="CloudsToggle" type="CheckButton" parent="SettingsPanel/VBox" unique_id=1482261853]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 22
+text = "Clouds"
+
+[node name="FullscreenToggle" type="CheckButton" parent="SettingsPanel/VBox" unique_id=466292149]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 22
+text = "Fullscreen"
+
+[node name="ResRow" type="HBoxContainer" parent="SettingsPanel/VBox" unique_id=1681587753]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="ResLabel" type="Label" parent="SettingsPanel/VBox/ResRow" unique_id=308417486]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 22
+text = "Resolution"
+vertical_alignment = 1
+
+[node name="ResOption" type="OptionButton" parent="SettingsPanel/VBox/ResRow" unique_id=116433756]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 20
+
+[node name="BackButton" type="Button" parent="SettingsPanel/VBox" unique_id=197240899]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.7, 0.2, 1)
+theme_override_colors/font_hover_color = Color(1, 0.7, 0.2, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("sb_btn")
+theme_override_styles/pressed = SubResource("sb_btn_hover")
+theme_override_styles/hover = SubResource("sb_btn_hover")
+theme_override_styles/focus = SubResource("sb_btn")
+text = "BACK"
+
+[node name="Leaderboard" parent="." unique_id=1475934857 instance=ExtResource("4_lb")]
+layout_mode = 3

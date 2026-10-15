@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bgunfireproj1"]
+
+[ext_resource type="Script" uid="uid://cbrqyto83j0cj" path="res://scripts/gunfire.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://dqbs6l2sci3br" path="res://assets/projectile_bullet.png" id="2_tex"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1"]
+radius = 1.0
+height = 4.0
+
+[node name="Gunfire" type="Node2D" unique_id=458277424]
+script = ExtResource("1_script")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1352215901]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1124902188]
+shape = SubResource("CapsuleShape2D_1")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=429182507]
+scale = Vector2(0.33333334, 0.2954545)
+texture = ExtResource("2_tex")

@@ -1,0 +1,218 @@
+[gd_scene format=3 uid="uid://cqow47bch5ocs"]
+
+[ext_resource type="Texture2D" uid="uid://r8ghk3oq1eoy" path="res://assets/bg_clouds.png" id="2_7mycd"]
+[ext_resource type="Texture2D" uid="uid://c6agiyx5cuom8" path="res://assets/clouds.png" id="3_5vw27"]
+[ext_resource type="Texture2D" uid="uid://dmeodxxjrs3eh" path="res://assets/playerjet_new.png" id="4_7mycd"]
+[ext_resource type="Script" uid="uid://ok64jt6onp4v" path="res://scripts/player.gd" id="5_9k2fn"]
+[ext_resource type="Texture2D" uid="uid://def3ju4j5oyop" path="res://assets/enemyjet_new.png" id="5_272bh"]
+[ext_resource type="Script" uid="uid://bkvvfgbckewkd" path="res://scripts/missile_spawner.gd" id="6_spawn"]
+[ext_resource type="Script" uid="uid://b8i7at48ugv3j" path="res://scripts/enemy.gd" id="7_efxa6"]
+[ext_resource type="Script" uid="uid://b8m8gwph6ry1k" path="res://scripts/hud.gd" id="7_hud"]
+[ext_resource type="Texture2D" uid="uid://tvjoh2yfonsm" path="res://assets/lock.png" id="9_kek77"]
+[ext_resource type="Texture2D" uid="uid://wfacvfi6jthm" path="res://assets/mstart.png" id="10_vivmo"]
+[ext_resource type="Texture2D" uid="uid://dqpy3hv1nu27j" path="res://assets/mdamage.png" id="11_2cqfq"]
+[ext_resource type="Texture2D" uid="uid://c2ofeu8fa373n" path="res://assets/mdestroy.png" id="12_yaehf"]
+[ext_resource type="Texture2D" uid="uid://dbsdvgg2yghg2" path="res://assets/mover.png" id="13_074og"]
+[ext_resource type="Texture2D" uid="uid://exmqvho547we" path="res://assets/hpfull.png" id="15_82xsv"]
+[ext_resource type="FontFile" uid="uid://dp0krqgfu4qv8" path="res://assets/Kenney Future.ttf" id="18_font"]
+[ext_resource type="PackedScene" uid="uid://bopc8f8lnje8r" path="res://scenes/gameover.tscn" id="20_gameover"]
+[ext_resource type="PackedScene" uid="uid://d0ypbqry8hpwj" path="res://scenes/menu.tscn" id="20_menu"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_aaruy"]
+radius = 2.0
+height = 8.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ufbim"]
+radius = 2.0
+height = 16.0
+
+[node name="Main" type="Node" unique_id=1393408281]
+script = ExtResource("6_spawn")
+
+[node name="Background" type="Parallax2D" parent="." unique_id=1834647525]
+z_index = -2
+repeat_size = Vector2(1440, 1440)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background" unique_id=1244181028]
+texture_repeat = 1
+position = Vector2(720.8222, 719.82227)
+scale = Vector2(2.8131943, 2.8131945)
+texture = ExtResource("2_7mycd")
+region_rect = Rect2(0, 0, 1440, 1440)
+
+[node name="Clouds" type="Parallax2D" parent="." unique_id=729940527]
+z_index = -1
+scroll_scale = Vector2(0.9, 0.9)
+scroll_offset = Vector2(500, 0)
+repeat_size = Vector2(720, 720)
+
+[node name="Sprite2D" type="Sprite2D" parent="Clouds" unique_id=2009973499]
+visibility_layer = 2
+texture_repeat = 1
+position = Vector2(1654.27, 325)
+scale = Vector2(1.4066, 1.4066)
+texture = ExtResource("3_5vw27")
+region_enabled = true
+region_rect = Rect2(0, 0, 1536, 1024)
+
+[node name="Player" type="Area2D" parent="." unique_id=1520942991]
+position = Vector2(574, 325)
+script = ExtResource("5_9k2fn")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1164755047]
+texture = ExtResource("4_7mycd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=547367342]
+shape = SubResource("CapsuleShape2D_aaruy")
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=2046123456]
+zoom = Vector2(1.3, 1.3)
+position_smoothing_enabled = true
+position_smoothing_speed = 6.0
+
+[node name="EnemyPlane" type="Area2D" parent="." unique_id=380277427]
+position = Vector2(574, 724)
+collision_layer = 16
+script = ExtResource("7_efxa6")
+
+[node name="Sprite2D" type="Sprite2D" parent="EnemyPlane" unique_id=1803649835]
+position = Vector2(0, -2)
+texture = ExtResource("5_272bh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyPlane" unique_id=17280286]
+shape = SubResource("CapsuleShape2D_ufbim")
+
+[node name="Clouds2" type="Parallax2D" parent="." unique_id=318767377]
+z_index = 1
+scroll_scale = Vector2(1.1, 1.1)
+repeat_size = Vector2(720, 720)
+
+[node name="Sprite2D" type="Sprite2D" parent="Clouds2" unique_id=1367458409]
+modulate = Color(1, 1, 1, 0.5)
+visibility_layer = 2
+texture_repeat = 1
+position = Vector2(574, 325)
+scale = Vector2(1.4066, 1.4066)
+texture = ExtResource("3_5vw27")
+region_enabled = true
+region_rect = Rect2(0, 0, 1536, 1024)
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1297458813]
+script = ExtResource("7_hud")
+
+[node name="LockON" type="TextureRect" parent="HUD" unique_id=1100035586]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("9_kek77")
+
+[node name="Label_flare" type="Label" parent="HUD" unique_id=407794984]
+offset_left = 849.0
+offset_top = 560.0
+offset_right = 981.0
+offset_bottom = 583.0
+theme_override_colors/font_color = Color(0.19215687, 0.8784314, 0.09803922, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("18_font")
+text = "Flares:"
+
+[node name="cooldown-f" type="Label" parent="HUD" unique_id=983805857]
+offset_left = 935.0
+offset_top = 560.0
+offset_right = 1073.0
+offset_bottom = 583.0
+theme_override_colors/font_color = Color(0.19215687, 0.8784314, 0.09803922, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("18_font")
+text = "cooldown-f"
+
+[node name="Label_time" type="Label" parent="HUD" unique_id=1355872003]
+offset_left = 849.0
+offset_top = 542.0
+offset_right = 956.0
+offset_bottom = 565.0
+theme_override_colors/font_color = Color(0.19215687, 0.8784314, 0.09803922, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("18_font")
+text = "Elapsed Time:"
+
+[node name="time" type="Label" parent="HUD" unique_id=904407491]
+offset_left = 1003.0
+offset_top = 542.0
+offset_right = 1105.0
+offset_bottom = 565.0
+theme_override_colors/font_color = Color(0.19215687, 0.8784314, 0.09803922, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("18_font")
+text = "ayy lmao"
+
+[node name="Score" type="Label" parent="HUD" unique_id=660255017]
+offset_left = 20.0
+offset_top = 18.0
+offset_right = 60.0
+offset_bottom = 41.0
+theme_override_colors/font_color = Color(0.19215687, 0.8784314, 0.09803922, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("18_font")
+text = "Score"
+
+[node name="Start" type="TextureRect" parent="HUD" unique_id=854149332]
+offset_left = 531.0
+offset_top = 304.0
+offset_right = 618.0
+offset_bottom = 352.0
+texture = ExtResource("10_vivmo")
+
+[node name="Damage" type="TextureRect" parent="HUD" unique_id=654798138]
+offset_left = 523.0
+offset_top = 304.0
+offset_right = 626.0
+offset_bottom = 352.0
+texture = ExtResource("11_2cqfq")
+
+[node name="DestroyEnemy" type="TextureRect" parent="HUD" unique_id=109404365]
+offset_left = 518.0
+offset_top = 304.0
+offset_right = 630.0
+offset_bottom = 352.0
+texture = ExtResource("12_yaehf")
+
+[node name="End" type="TextureRect" parent="HUD" unique_id=863436897]
+offset_left = 513.0
+offset_top = 304.0
+offset_right = 635.0
+offset_bottom = 353.0
+texture = ExtResource("13_074og")
+
+[node name="playerHealth" type="TextureRect" parent="HUD" unique_id=460487229]
+offset_left = 790.0
+offset_top = 542.0
+offset_right = 830.0
+offset_bottom = 587.0
+texture = ExtResource("15_82xsv")
+
+[node name="playerHealth_label" type="Label" parent="HUD" unique_id=1931211083]
+offset_left = 753.0
+offset_top = 520.0
+offset_right = 871.0
+offset_bottom = 543.0
+theme_override_colors/font_color = Color(0.19215687, 0.8784314, 0.09803922, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("18_font")
+text = "health"
+horizontal_alignment = 1
+
+[node name="Menu" parent="." unique_id=1045656185 instance=ExtResource("20_menu")]
+
+[node name="GameOver" parent="." unique_id=1101164260 instance=ExtResource("20_gameover")]
+
+[node name="PlayerSpawn" type="Marker2D" parent="." unique_id=1460226105]
+position = Vector2(574, 325)
+
+[node name="EnemySpawn" type="Marker2D" parent="." unique_id=947133482]
+position = Vector2(574, 724)
